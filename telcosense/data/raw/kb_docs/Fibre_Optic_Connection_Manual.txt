@@ -1,0 +1,55 @@
+Fibre Optic Connection Manual - TelcoSense Field Engineering
+
+1. Pre-Installation Checklist
+Confirm ONT model: TelcoSense FibreBox v3.
+Verify fibre drop cable is undamaged and properly labelled.
+Confirm customer splice point is accessible (building riser or MDF).
+Tools required: OTDR, fibre cleaver, fusion splicer, optical power meter.
+
+2. Physical Installation
+
+2.1 Fibre Entry Point
+Route the drop cable from the street cabinet to the building entry.
+Install a protective conduit at wall penetration points.
+Leave 1.5 m slack coiled at the ONT mounting location.
+
+2.2 Fusion Splicing
+Strip 2 cm of outer jacket from both fibres.
+Clean with 99% isopropyl alcohol wipe.
+Cleave each fibre to 1 degree angle (verify with cleaver scale).
+Splice using arc fusion: target splice loss below 0.05 dB.
+Seal splice with heat-shrink protection sleeve.
+
+2.3 ONT Configuration
+Connect pigtail to ONT SC/APC port.
+Power on ONT. LOS LED should go OFF within 30 seconds.
+Log into ONT admin at http://192.168.100.1 using admin and telco2026.
+Set GPON SN (serial number from device label).
+Confirm PON registration: Status, PON, Registration shows O5 Active.
+
+3. Testing and Certification
+
+3.1 OTDR Test
+Launch OTDR from building MDF end.
+Acceptable total insertion loss: below 28 dB (GPON class B+).
+Any event above 0.3 dB reflection loss indicates a problem splice.
+
+3.2 Speed Test
+Connect test laptop to ONT LAN port 1 (gigabit Ethernet).
+Expected speeds: Download 900 Mbps or higher. Upload 500 Mbps or higher.
+Use speedtest.telcosense.ch for calibrated results.
+
+4. Common Faults and Resolution
+No PON signal with LOS solid red: Fibre break or dirty connector.
+Run OTDR trace then clean or replace connector.
+High BER with LOS blinking: Splice loss too high.
+Re-splice targeting below 0.1 dB.
+ONT not registering with Auth LED off: Wrong GPON SN in provisioning.
+Correct SN in OSS portal.
+Slow speed with Speed LED amber: Bandwidth contention.
+Escalate to NOC for DSL port check.
+
+5. Escalation
+Fibre faults unresolved after 1 hour: raise P2 ticket in ServiceNow.
+Include OTDR trace file (.sor) and optical power measurement screenshot.
+SLA: residential 24 h restore; business 4 h restore.

@@ -1,0 +1,57 @@
+Customer Onboarding and SIM Activation Guide - TelcoSense
+
+1. SIM Card Types
+TelcoSense offers three physical formats and eSIM.
+Standard SIM (2FF) for legacy devices.
+Micro-SIM (3FF) for older smartphones.
+Nano-SIM (4FF) for current smartphones.
+eSIM (eUICC) for iPhone XS+, Samsung S20+, Pixel 3+ and later.
+
+2. Physical SIM Activation
+Step 1. Insert SIM into device tray (ensure correct orientation).
+Step 2. Power on device. TelcoSense should appear as carrier.
+Step 3. Open TelcoSense App, go to Account, Activate SIM.
+Enter the 20-digit ICCID from SIM card printed below barcode.
+Step 4. Await confirmation SMS within 5 minutes.
+Step 5. Restart device to finalize network registration.
+
+3. eSIM Activation
+In TelcoSense App go to Activate, eSIM, Download Profile.
+Follow device-specific prompts to install eSIM profile.
+Set TelcoSense as default data line.
+Activation code EID format is 32 hexadecimal digits.
+
+4. Number Porting (MNP)
+Submit MNP request at least 3 business days before desired date.
+Required documents: existing carrier account number and last invoice copy.
+Port completion within 24 hours of confirmed request.
+Service interruption window is 15 minutes or less during port.
+
+5. Troubleshooting Activation
+
+SIM Not Recognised:
+Try in another device to isolate hardware vs SIM fault.
+Clean contacts with dry cloth. Avoid isopropyl on nano-SIM.
+Replace SIM at any TelcoSense retail point free of charge.
+
+No Network Registration:
+Manual network selection: Settings, Mobile, Network, TelcoSense.
+If no TelcoSense network shown check device band compatibility.
+Required bands: B1/B3/B7/B28 for 4G and n78/n1 for 5G.
+
+eSIM Profile Fails to Download:
+Ensure Wi-Fi connectivity before download.
+QR code valid for 24 hours. Request new code via app if expired.
+Factory reset eSIM: Settings, General, Transfer Reset, Erase eSIM.
+
+6. Data APN Settings (manual)
+APN: telcosense.ch
+Username: blank
+Password: blank
+MCC: 228
+MNC: 08
+Authentication: None
+
+7. Support
+For activation failures contact +41 800 300 300 or
+support@telcosense.ch. 24/7 chat available in the app.
