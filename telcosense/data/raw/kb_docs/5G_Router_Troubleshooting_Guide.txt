@@ -1,0 +1,48 @@
+5G Router Troubleshooting Guide - TelcoSense Support
+
+Overview
+This guide covers common 5G home-router issues and step-by-step
+resolution procedures for TelcoSense field technicians and Tier-2
+support agents.
+
+1. No Internet Connectivity
+Symptoms: Router shows solid amber WAN LED, devices cannot browse.
+Resolution steps:
+  Step 1. Reboot the router by pressing the reset button for 10 seconds.
+  Step 2. Verify the SIM card is seated correctly in the router slot.
+  Step 3. Check signal bars. Fewer than 2 bars indicates poor 5G coverage.
+     Reposition the router near a window or exterior wall.
+  Step 4. Confirm APN settings: navigate to 192.168.1.1, Mobile Network,
+     APN and set to telcosense.5g with username blank and password blank.
+  Step 5. If issues persist, factory-reset and re-provision via the
+     TelcoSense Mobile App under Devices, Add New Device.
+
+2. Slow Data Speeds
+Symptoms: Speed test shows low throughput despite full signal.
+Checklist:
+  Ensure the router firmware is up-to-date via Settings, Firmware.
+  Switch from NSA (Non-Standalone) to SA (Standalone) 5G if available.
+  Check for local cell congestion: performance may degrade during
+  peak hours from 18:00 to 22:00 local time.
+  Disable 2.4 GHz Wi-Fi if not needed to reduce interference.
+  Set QoS priority to Gaming or Streaming for improved latency.
+
+3. Intermittent Disconnections
+Root causes: Weak 5G signal with frequent handoff to 4G LTE fallback.
+Router overheating. Ensure 10 cm clearance on all sides.
+ISP-side load balancing events typically resolve within 2 hours.
+Resolution: Enable Signal Lock in advanced settings to pin to 5G NR band n78.
+Upgrade to the TelcoSense Pro 5G mesh extender for seamless roaming.
+
+4. Router LED Status Reference
+Green Solid: Healthy, 5G connected.
+Blue Solid: Connected via 4G LTE fallback.
+Amber Solid: WAN link failure.
+Red Solid: Hardware fault, contact support.
+White Pulsing: Firmware update in progress.
+
+5. Escalation Path
+Tier-1 attempts remote diagnostics via the TelcoSense NOC portal.
+If unresolved after 30 minutes, raise a P1 ticket and dispatch a
+field engineer. SLA for 5G outages: 4-hour response, 8-hour resolution.
+Support Hotline: +41 800 500 500. NOC Email: noc@telcosense.ch

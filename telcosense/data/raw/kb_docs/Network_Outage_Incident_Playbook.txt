@@ -1,0 +1,51 @@
+Network Outage Incident Management Playbook - TelcoSense NOC
+
+1. Severity Classification
+P1 Critical: More than 10000 customers affected.
+Max response 15 minutes. Max resolution 2 hours.
+P2 Major: 1000 to 10000 customers affected.
+Max response 30 minutes. Max resolution 4 hours.
+P3 Moderate: 100 to 1000 customers affected.
+Max response 1 hour. Max resolution 8 hours.
+P4 Minor: Fewer than 100 customers affected.
+Max response 4 hours. Max resolution 24 hours.
+
+2. P1 Incident Procedure
+Step 1. NOC engineer declares P1 via PagerDuty alert to on-call team.
+Step 2. Incident Commander assigned within 5 minutes.
+Step 3. War-room bridge opened at teams.telcosense.ch/noc-p1.
+Step 4. Customer communications: status.telcosense.ch updated every 15 minutes.
+Step 5. Executive notification (CTO/CEO) if outage exceeds 30 minutes.
+
+3. Diagnostic Toolkit
+SCOM Dashboard: Real-time RAN KPIs including PRB utilization, CQI, SINR.
+Kibana Logs: Filter by service core-network AND level ERROR.
+Grafana: Panels, 5G Core, Session Success Rate target above 99.5%.
+CLI Tools: telco-cli ping-node checks ICMP reachability.
+telco-cli dump-alarms shows critical alerts.
+telco-cli show-ran-stats shows RAN statistics per cell.
+
+4. Common Outage Root Causes
+
+Core Network AMF SMF UPF:
+Container pod crash. Check with kubectl get pods -n 5g-core.
+Mitigation: kubectl rollout restart deployment/amf.
+
+Radio gNB:
+Overheating: check cabinet temperature sensors. Alarm threshold above 55 degrees C.
+Software bug: rollback to previous gNB build via OSS GUI.
+
+Transport IP MPLS:
+BGP session drop: verify with show bgp neighbors grep Idle.
+Reroute traffic via secondary MPLS LSP.
+
+5. Post-Incident Review PIR
+PIR required for all P1 and P2 incidents within 5 business days.
+Template in Confluence NOC PIR Template v3.
+Sections: Timeline, Root Cause, Impact, Preventive Actions.
+
+6. Escalation Contacts
+NOC Lead: noc-lead@telcosense.ch available 24/7.
+Network Director: nd@telcosense.ch during business hours.
+Vendor TAC Ericsson: +46 10 719 0000 available 24/7 for P1.
+Vendor TAC Nokia: +1 844 665 2001 available 24/7 for P1.

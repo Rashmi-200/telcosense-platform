@@ -1,0 +1,105 @@
+# ==============================================================================
+# TelcoSense Platform — Master Configuration
+# ==============================================================================
+
+platform:
+  name: "TelcoSense"
+  version: "1.0.0"
+  environment: "development"          # development | staging | production
+
+# ── Paths ─────────────────────────────────────────────────────────────────────
+paths:
+  data_raw: "data/raw"
+  data_processed: "data/processed"
+  models_dir: "models/"
+  logs_dir: "logs/"
+
+# ── Data Sources ──────────────────────────────────────────────────────────────
+data:
+  ibm_churn_url: "https://raw.githubusercontent.com/IBM/telco-customer-churn-on-icp4d/master/data/Telco-Customer-Churn.csv"
+  ibm_churn_local: "data/raw/ibm_churn.csv"
+  tickets_local: "data/raw/tickets.csv"
+  synthetic_rows: 2000
+  ticket_rows: 2000
+  random_seed: 42
+
+# ── Feature Store ─────────────────────────────────────────────────────────────
+feature_store:
+  output_path: "data/processed/features.parquet"
+  target_column: "Churn"
+  categorical_columns:
+    - "gender"
+    - "SeniorCitizen"
+    - "Partner"
+    - "Dependents"
+    - "PhoneService"
+    - "MultipleLines"
+    - "InternetService"
+    - "OnlineSecurity"
+    - "OnlineBackup"
+    - "DeviceProtection"
+    - "TechSupport"
+    - "StreamingTV"
+    - "StreamingMovies"
+    - "Contract"
+    - "PaperlessBilling"
+    - "PaymentMethod"
+
+# ── MLflow ────────────────────────────────────────────────────────────────────
+mlflow:
+  tracking_uri: "http://localhost:5000"
+  experiment_churn: "telcosense-churn-prediction"
+  experiment_classifier: "telcosense-ticket-classifier"
+  model_registry_uri: "http://localhost:5000"
+
+# ── Churn Model ───────────────────────────────────────────────────────────────
+churn_model:
+  test_size: 0.2
+  cv_folds: 5
+  optuna_trials: 30
+  early_stopping_rounds: 50
+  metric: "roc_auc"
+
+# ── Ticket Classifier ─────────────────────────────────────────────────────────
+ticket_classifier:
+  categories:
+    - "Billing"
+    - "Network"
+    - "Hardware"
+  test_size: 0.2
+  max_features: 5000
+  ngram_range: [1, 2]
+
+# ── RAG / Vector Store ────────────────────────────────────────────────────────
+rag:
+  qdrant_host: "localhost"
+  qdrant_port: 6333
+  collection_name: "telco_tickets"
+  embedding_model: "all-MiniLM-L6-v2"
+  chunk_size: 512
+  chunk_overlap: 64
+  top_k: 5
+
+# ── Monitoring ────────────────────────────────────────────────────────────────
+monitoring:
+  reference_data_path: "data/processed/features.parquet"
+  drift_threshold: 0.1
+  report_output_dir: "logs/drift_reports"
+
+# ── API ───────────────────────────────────────────────────────────────────────
+api:
+  host: "0.0.0.0"
+  port: 8000
+  reload: true
+  log_level: "info"
+  cors_origins:
+    - "http://localhost:3000"
+    - "http://localhost:8080"
+
+# ── Airflow DAG ───────────────────────────────────────────────────────────────
+airflow:
+  dag_id: "telcosense_retraining"
+  schedule_interval: "@weekly"
+  retries: 2
+  retry_delay_minutes: 5
+  email_on_failure: false

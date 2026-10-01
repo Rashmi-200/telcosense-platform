@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[codz]
+*$py.class
+
+# Environments & Virtual Envs
+.env
+.env.*
+.envrc
+.venv/
+venv/
+
+# TelcoSense Specific Ignored Directories & Artifacts
+mlruns/
+**/mlruns/
+data/processed/
+**/data/processed/
+**/qdrant_db/
+*.parquet
+logs/
+**/logs/
+reports/
+**/reports/
+.pytest_cache/
+.idea/
+.vscode/

@@ -1,0 +1,49 @@
+TelcoSense Swiss Billing and Tariff Policy v4.2 (2026)
+
+1. Invoicing Cycle
+Invoices are generated on the 1st of each month and due within
+30 days of issuance. Late payment incurs a CHF 15 administrative fee
+per outstanding invoice.
+
+2. Tariff Plans
+
+2.1 Basic Mobile CHF 29 per month
+Includes 5 GB data throttled to 1 Mbps after cap.
+200 national call minutes. 100 SMS included. No international roaming.
+
+2.2 Standard Mobile CHF 49 per month
+Includes 25 GB data throttled to 5 Mbps after cap.
+Unlimited national calls and SMS.
+EU zone roaming included with 15 GB. Voicemail included.
+
+2.3 Premium 5G CHF 89 per month
+Unlimited data with no throttling up to fair-use limit of 300 GB.
+Unlimited calls and SMS for national and EU destinations.
+Global roaming in 80+ countries.
+5G priority network access. Hotspot tethering up to 50 Mbps.
+
+2.4 Business Unlimited CHF 149 per month per line
+All Premium 5G benefits plus dedicated account manager.
+SLA-backed uptime guarantee of 99.9 percent. Priority NOC support.
+
+3. Dispute Resolution
+Customers must raise billing disputes within 60 days of invoice date.
+Disputes submitted via my.telcosense.ch, Billing, Dispute Invoice.
+Or by phone at +41 800 200 100 Monday to Friday 08:00 to 18:00.
+Resolution target: 10 business days. Credit notes issued within 5 days.
+
+4. Payment Methods Accepted
+Swiss IBAN bank transfer. Credit card (Visa, Mastercard, AmEx).
+PostFinance eBill. TelcoSense account credit (top-up via app).
+
+5. Roaming Charges outside EU zone
+USA and Canada: CHF 0.05 per MB data, CHF 1.20 per minute voice.
+Asia Pacific: CHF 0.08 per MB data, CHF 1.80 per minute voice.
+Africa and Rest: CHF 0.15 per MB data, CHF 2.50 per minute voice.
+
+6. Contract Cancellation
+Minimum contract term 12 months. Early termination fee:
+CHF 50 plus remaining monthly fees times 0.5. No fee after 24 months.
+
+7. VAT
+All prices include 8.1% Swiss VAT as required by MWSTG Art. 25.
