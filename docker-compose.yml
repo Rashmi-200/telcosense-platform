@@ -154,6 +154,23 @@ services:
     networks:
       - telcosense-net
 
+  dashboard:
+    build:
+      context: ./telcosense
+      dockerfile: Dockerfile
+    container_name: telcosense-dashboard
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_started
+    ports:
+      - "8501:8501"
+    environment:
+      - API_BASE_URL=http://api:8000
+    command: ["streamlit", "run", "src/api/app.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
+    networks:
+      - telcosense-net
+
 volumes:
   postgres_data:
   qdrant_storage:

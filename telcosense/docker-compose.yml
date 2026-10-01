@@ -143,7 +143,7 @@ services:
       - telcosense-net
 
   # ---------------------------------------------------------------------------
-  # 5. FastAPI TelcoSense Application
+  # 5. FastAPI TelcoSense Backend Gateway
   # ---------------------------------------------------------------------------
   api:
     build:
@@ -166,6 +166,26 @@ services:
     volumes:
       - ./data:/app/data
       - ./mlruns:/app/mlruns
+    networks:
+      - telcosense-net
+
+  # ---------------------------------------------------------------------------
+  # 6. Streamlit Web Dashboard
+  # ---------------------------------------------------------------------------
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: telcosense-dashboard
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_started
+    ports:
+      - "8501:8501"
+    environment:
+      - API_BASE_URL=http://api:8000
+    command: ["streamlit", "run", "src/api/app.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
     networks:
       - telcosense-net
 

@@ -13,6 +13,7 @@ optuna==3.6.1
 pandas==2.2.3
 numpy==1.26.4
 faker==30.3.0
+pyarrow==17.0.0
 
 # ── Validation & Config ───────────────────────────────────────────────────────
 pydantic==2.9.2
@@ -30,10 +31,13 @@ qdrant-client==1.11.3
 sentence-transformers==3.1.1
 langchain-community==0.3.2
 
-# ── API Serving ───────────────────────────────────────────────────────────────
+# ── API Serving & Web Dashboard ───────────────────────────────────────────────
 fastapi==0.115.0
 uvicorn[standard]==0.31.0
+streamlit>=1.38.0
+plotly>=5.24.0
 
-# ── Testing ───────────────────────────────────────────────────────────────────
+# ── Testing & HTTP ────────────────────────────────────────────────────────────
 pytest==8.3.3
 requests==2.32.3
+httpx>=0.27.0
